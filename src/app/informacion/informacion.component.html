@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>{{data.nombre}}</h1>
+<div mat-dialog-content>
+  <table>
+    <tr></tr>
+    <tr *ngFor="let alumno of info">
+      <td>
+        {{alumno.Materia}}
+      </td>
+      <td>
+        {{alumno.Calificacion}}
+      </td>
+    </tr>
+  </table>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" class="material-icons">clear</button>
+</div>

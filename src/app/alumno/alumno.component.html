@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>{{data.nombre}}</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Seleccionar Materia</mat-label>
+    <mat-select [(value)]="data.materia">
+    <mat-option>None</mat-option>
+    <mat-option value="{{asignatura.Nombre}}" *ngFor="let asignatura of data.materias">{{asignatura.Nombre}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field *ngIf="data.materia">
+    <mat-label>Calificación</mat-label>
+    <input matInput [(ngModel)]="data.calificacion">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" class="material-icons">clear</button>
+  <button mat-button (click)="onOkClick()" class="material-icons">send</button>
+</div>

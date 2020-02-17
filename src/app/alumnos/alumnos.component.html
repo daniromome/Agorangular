@@ -1,0 +1,34 @@
+<div style="text-align: center;">
+  <h1>Promedio General</h1>
+  <h3 *ngFor="let prom of promedio" style="margin-bottom: 10%;"> {{ prom.Promedio }} </h3>
+</div>
+<mat-card>
+  <mat-card-title style="text-align: center;">
+    Alumnos
+  </mat-card-title>
+  <mat-list>
+    <mat-list-item *ngFor="let alumno of alumnos">
+      <p matLine>{{alumno.Nombre}}</p>
+      <button mat-raised-button class="material-icons" (click)="openInfo(alumno.ID,alumno.Nombre)">assignment_ind</button>
+      <button mat-raised-button class="material-icons" (click)="openGrader(alumno.ID,alumno.Nombre)">create</button>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
+<mat-divider></mat-divider>
+<div *ngIf="cambio">
+  <h3 style="margin: 5%;">Registrar Calificaciones</h3>
+  <div class="container" style="width: 100%; margin: 5% 0;">
+    <mat-card *ngFor="let cambio of cambios" style="min-width: 85%; margin: 5%">
+      <mat-card-title style="text-align: center;">
+        {{ cambio.nombre }}
+      </mat-card-title>
+      <mat-card-content style="text-align: center;">
+        <p>{{ cambio.materia }}: <b>{{cambio.calificacion }}</b></p>
+      </mat-card-content>
+      <mat-card-footer style="text-align: right;">
+        <button mat-button class="material-icons" (click)="applyChanges(cambio.id, cambio.materia, cambio.calificacion)" style="margin:0.2em">save</button>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>
+<mat-divider></mat-divider>
