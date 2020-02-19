@@ -100,6 +100,10 @@ export class AlumnosComponent implements OnInit {
     this.serve.postCalificarAlumno(alumno, materia, calificacion.toString()).subscribe((data: any[]) => {
       console.log(data);
       this.cambios.splice(this.cambios.findIndex(cambio => cambio.id === alumno), 1);
+      this.serve.getPromedio().subscribe((prom: any[]) => {
+        console.log(prom);
+        this.promedio = prom;
+      });
     });
   }
 
